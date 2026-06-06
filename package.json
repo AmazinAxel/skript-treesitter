@@ -1,0 +1,19 @@
+{
+  "name": "skript-tree-sitter",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tree-sitter generate"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.skript",
+      "file-types": [
+        "sk"
+      ],
+      "injection-regex": "^skript$"
+    }
+  ],
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.0"
+  }
+}

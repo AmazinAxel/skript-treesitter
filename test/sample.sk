@@ -1,0 +1,50 @@
+###
+block comment
+TODO FIXME
+###
+
+# single line comment FIXME TODO
+
+import: # comment on line
+	org.bukkit.inventory.meta.ItemMeta
+	org.bukkit.inventory.ItemFlag
+	ch.njol.skript.util.Direction
+	org.bukkit.Color
+	net.minecraft.network.protocol.game.ClientboundAnimatePacket
+	io.papermc.paper.event.player.PlayerTrackEntityEvent
+
+options:
+	prefix: &7test
+
+variables:
+	{counter} = 0
+	{players::*} = "string"
+
+on join:
+	send "hello %player%!" to player
+	add 1 to {counter}
+	if {counter} is greater than 10:
+		broadcast "Lots of joins"
+	else if {counter} is on:
+		# comment
+
+every 5 seconds:
+	loop all players:
+		set {_n} to loop-player
+		set {-string} to "%{_n}%"
+		if name of {_n} is "notch":
+			send "hi" to {_n}
+
+function greet(p: player, msg: text = "hello") :: text:
+	send {_msg} to {_p}
+	return "done"
+
+local function addOne(n: integer) -> integer:
+	return n + 1
+
+on damage:
+	if attacker doesn't have permission "x":
+		cancel event
+	else if attacker does not have permision "y":
+		uncancel event
+	set damage to 5
