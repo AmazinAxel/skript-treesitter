@@ -1,10 +1,10 @@
-# Skript tree sitter grammar
+# Skript tree-sitter
 
-Very basic grammar for the Skript language.
+Very basic grammar for the Skript language
 
 ## Use with Helix and Nix/home-manager
 
-You should utilize Nix's built-in tree sitter grammar build module.
+You should utilize Nix's built-in tree sitter grammar build module:
 
 ```nix
 skriptTreesitterSrc = pkgs.fetchFromGitHub {
@@ -48,4 +48,4 @@ xdg.configFile = {
 };
 ```
 
-This grammar only offers syntax highlighting at this time. PRs that expand functionality and add more syntax are accepted!
+This grammar only offers syntax highlighting at this time. PRs that expand functionality & adds vanilla/reflect syntax will be accepted!
