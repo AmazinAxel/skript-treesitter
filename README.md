@@ -6,17 +6,23 @@ Very basic grammar for the Skript language.
 
 Since Nix has a built in treesitter grammar build module, you should utilize that to declaratively use this grammar.
 
-```
-skriptHighlighting = pkgs.tree-sitter.buildGrammar {
+```nix
+skriptTreesitterSrc = pkgs.fetchFromGitHub {
+  owner = "AmazinAxel";
+  repo = "skript-treesitter";
+  rev = "d22fee87c5b383bb9039ba30df6d28b2f98ade3d";
+  hash = "sha256-q7OQedbJ9PAMN3l3J/u410BO0qNkccJaDdro+br65D0=";
+};
+skriptTreesitter = pkgs.tree-sitter.buildGrammar {
   language = "skript";
-  version = "local";
-  src = ./skript-syntax-highlighting;
+  version = "1.0.0";
+  src = skriptTreesitterSrc;
 };
 ```
 
 For home-manager and Helix specifically, you can use:
 
-```
+```nix
 programs.helix.languages = {
   language = [{
     name = "skript";
@@ -32,13 +38,13 @@ programs.helix.languages = {
   }];
   grammar = [{
     name = "skript";
-    source.path = "${./skript-syntax-highlighting}";
+    source.path = "${skriptTreesitterSrc}";
   }];
 };
 
 xdg.configFile = {
-  "helix/runtime/queries/skript".source = ./skript-syntax-highlighting/queries;
-  "helix/runtime/grammars/skript.so".source = "${skriptHighlighting}/parser";
+  "helix/runtime/queries/skript".source =  "${skriptTreesitterSrc}/queries";
+  "helix/runtime/grammars/skript.so".source = "${skriptTreesitter}/parser";
 };
 ```
 
