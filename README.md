@@ -1,10 +1,10 @@
-# Skript treesitter grammar
+# Skript tree sitter grammar
 
 Very basic grammar for the Skript language.
 
 ## Use with Helix and Nix/home-manager
 
-Since Nix has a built in treesitter grammar build module, you should utilize that to declaratively use this grammar.
+You should utilize Nix's built-in tree sitter grammar build module.
 
 ```nix
 skriptTreesitterSrc = pkgs.fetchFromGitHub {
