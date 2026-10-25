@@ -46,7 +46,7 @@
 (storage) @keyword.storage
 (func_keyword) @keyword
 (function_name) @function
-(function_call) @function
+(function_call_name) @function
 (param_name) @variable.parameter
 (type) @type
 (func_return) @operator

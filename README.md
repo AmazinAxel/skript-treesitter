@@ -6,12 +6,14 @@ Very basic grammar for the Skript language
 
 You should utilize Nix's built-in tree sitter grammar build module:
 
+You can get `rev`/`hash` with `nix run nixpkgs#nix-prefetch-github -- AmazinAxel skript-treesitter`.
+
 ```nix
 skriptTreesitterSrc = pkgs.fetchFromGitHub {
   owner = "AmazinAxel";
   repo = "skript-treesitter";
-  rev = "d22fee87c5b383bb9039ba30df6d28b2f98ade3d";
-  hash = "sha256-q7OQedbJ9PAMN3l3J/u410BO0qNkccJaDdro+br65D0=";
+  rev = "c6194a5287b9c5cb878da91784185348cb148ea4";
+  hash = "sha256-InzQY/oTPodPGjqYYR8/mtcgYdDjm1uUzYaKN6pxyOs=";
 };
 skriptTreesitter = pkgs.tree-sitter.buildGrammar {
   language = "skript";
